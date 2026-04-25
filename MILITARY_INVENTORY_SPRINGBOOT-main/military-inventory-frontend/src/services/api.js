@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+// Read backend base URL from Vite env variable at build time.
+// In Vercel set VITE_API_BASE_URL to your backend URL (example: https://api.example.com)
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'; // Spring Boot
+
 const api = axios.create({
-  baseURL: 'http://localhost:8080', // Spring Boot
+  baseURL: BASE_URL,
   withCredentials: true
 });
 
